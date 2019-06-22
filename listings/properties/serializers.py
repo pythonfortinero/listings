@@ -18,4 +18,4 @@ class ListingDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Listings
-        fields = ('price',)
+        fields = ('price_per_square',)

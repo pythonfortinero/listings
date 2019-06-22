@@ -44,6 +44,5 @@ class ListingDetailView(APIView):
         Return properties detail.
         """
         listings = self.get_queryset(pk)
-        print(Listings, "hasta aca")
         serializer = ListingDetailSerializer(listings)
         return Response(serializer.data, status=status.HTTP_200_OK)

@@ -1,10 +1,4 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
+import math
 from django.db import models
 
 
@@ -19,3 +13,12 @@ class Listings(models.Model):
     class Meta:
         managed = False
         db_table = 'listings'
+
+    @property
+    def price_per_square(self):
+        try:
+            print(self.total_area)
+            price_per_square = math.ceil(self.price / self.total_area)
+        except ZeroDivisionError:
+            price_per_square = 0
+        return price_per_square
