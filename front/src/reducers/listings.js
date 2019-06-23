@@ -3,15 +3,20 @@ import {
 } from '../constants';
 
 const defaultListings = {
-  data: []
+	offset: 0,
+	results: [],
+	count: 0,
+	previous: null,
+	current_url: null,
+	search_value: ''
 };
 
 const listings = (state = defaultListings, action) => {
   switch(action.type){
   	case UPDATELISTINGS:
-  		return Object.assign(state, action.data)
+  		return Object.assign({}, state, action.data)
     default:
-      return Object.assign({}, state);
+    	return Object.assign({}, state);
   }
 }
 

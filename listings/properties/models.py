@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Listings(models.Model):
-    id = models.TextField(blank=True, null=False, primary_key=True)  # This field type is a guess.
+    id = models.AutoField(null=False, primary_key=True)  # This field type is a guess.
     title = models.TextField(blank=True, null=True)
     location = models.TextField(blank=True, null=True)
     subtype = models.TextField(blank=True, null=True)
@@ -17,8 +17,7 @@ class Listings(models.Model):
     @property
     def price_per_square(self):
         try:
-            print(self.total_area)
-            price_per_square = math.ceil(self.price / self.total_area)
+            price_per_square = math.ceil(float(self.price) / self.total_area)
         except ZeroDivisionError:
             price_per_square = 0
         return price_per_square
