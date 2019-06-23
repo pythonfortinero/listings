@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build: ./listings
+    volumes:
+      - ./listings:/code
+    ports:
+      - "8000:8000"
+    command: bash -c "python3 manage.py runserver 0.0.0.0:8000"
+  front:
+    build: ./front
+    command: npm start
+    volumes:
+      - ./front:/src
+      - listingsnodemodules:/src/node_modules
+    ports:
+      - 3000:3000
+volumes:
+  listingsnodemodules:
