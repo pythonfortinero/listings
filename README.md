@@ -1,4 +1,4 @@
-TASK 2
+Task 2
 ======
 
 for read the listings.db I used
@@ -7,16 +7,15 @@ for read the listings.db I used
 python manage.py inspectdb > models.py
 ```
 
-for testing purpose, I made the migration and made a new folder test migrations
-with managed = False commented
+for testing purpose, I made the migration and made a new migrations folder called tests_migrations with the same 0001_inital content but i made a change in the CreateModel commented the managed = False if don't make this, I can't run the testcase.
 
-And I made
+And for generate the fixtures I run the next command.
 
 ```
 python manage.py dumpdata listings.Listings > listings.json
 ```
 
-after this I use this fixtures in the testcase.
+After this I use this fixtures in the testcase for have test data.
 
 For run the project you need docker and docker compose
 first build with 
